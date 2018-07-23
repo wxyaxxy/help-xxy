@@ -1,20 +1,30 @@
 import os
 import xlrd
 
-excelFile = xlrd.open_workbook(r'e:/123/123.xlsx')
+#1.打开excel文件，读取某一个位置的内容
+excelFile = xlrd.open_workbook(r'./123.xlsx')
 sheet = excelFile.sheet_by_index(0)
-xiangmumingcheng = sheet.col_values(2)
-xiangmuhao = sheet.col_values(1)
+#2.读取道路，案件小类，计量 3列的数据放在3个列表当中
+DaoLu = sheet.col_values(4)
+AnJianXiaoLei = sheet.col_values(7)
+JiLiangShu = sheet.col_values(12)
+print(sheet.cell(0,0))
+print(sheet.)
+# print(DaoLu)
+# print(AnJianXiaoLei)
+# print(JiLiangShu)
+# print(int(JiLiangShu[1]))
+# xiangmuhao = sheet.col_values(1)
 
-genmulu = 'e:/123'
-os.chdir(genmulu)
-file = open('wang.txt','w')
-file.write('1234567890')
-file.close()
+# genmulu = 'e:/123'
+# os.chdir(genmulu)
+# file = open('wang.txt','w')
+# file.write('1234567890')
+# file.close()
 
-file2 = open('wang.xlsx','w')
+# file2 = open('wang.xlsx','w')
 # file2.write('123')
-file2.close()
+# file2.close()
 # for jishu in range(len(xiangmuhao)):
 #     ming = xiangmuhao[jishu] + ' ' + xiangmumingcheng[jishu]
 #     try:
