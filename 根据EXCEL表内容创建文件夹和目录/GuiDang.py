@@ -1,18 +1,34 @@
-import os
-import xlrd
+# from openpyxl import workbook
+# from openpyxl import load_workbook
+# from openpyxl.writer.excel import ExcelWriter
 
-#1.打开excel文件，读取某一个位置的内容
-excelFile = xlrd.open_workbook(r'./123.xlsx')
-sheet = excelFile.sheet_by_index(0)
-#2.读取道路，案件小类，计量 3列的数据放在3个列表当中
-DaoLu = sheet.col_values(4)
+import xlrd
+from xlutils.copy import *
+import xlwt
+# 1.打开excel文件，读取某一个位置的内容
+book = xlrd.open_workbook("./123.xls")
+sheet = book.sheet_by_index(0)
+# 2.读取道路，案件小类，计量 3列的数据放在3个列表当中
+DaoLu = sheet.col_values(3)
 AnJianXiaoLei = sheet.col_values(7)
 JiLiangShu = sheet.col_values(12)
-print(sheet.cell(0,0))
-print(sheet.)
-# print(DaoLu)
-# print(AnJianXiaoLei)
-# print(JiLiangShu)
+# 3.读入欲写入表格的内容准备进行比较
+book2 = xlrd.open_workbook("./biaoge.xls")
+read_sheet = book2.sheet_by_index(0)
+# 3.调用xlutils复制要写入的表格的样式
+bookwrite = copy(book2)
+write_sheet = bookwrite.get_sheet(0)
+write_sheet.write(3, 0, 123)
+# bookwrite.save("./456.xls")
+# mySheet.write(0,0,2) #成功在0，0这个位置写入1
+# row = 0
+# lie = 0
+
+# myWorkBook.save("./456.xls")
+# print(sheet.)
+print(DaoLu)
+print(AnJianXiaoLei)
+print(JiLiangShu)
 # print(int(JiLiangShu[1]))
 # xiangmuhao = sheet.col_values(1)
 
@@ -38,7 +54,7 @@ print(sheet.)
 #     except:
 #         pass
 
-#path = 'M-400066 湛江港6000HP拖轮'
+# path = 'M-400066 湛江港6000HP拖轮'
 # try:
 #     os.makedirs(path)
 # except:
