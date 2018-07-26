@@ -15,11 +15,14 @@ JiLiangShu = sheet.col_values(12)
 # 3.读入欲写入表格的内容准备进行比较
 book2 = xlrd.open_workbook("./biaoge.xls")
 read_sheet = book2.sheet_by_index(0)
-# 3.调用xlutils复制要写入的表格的样式
+# 4.调用xlutils复制要写入的表格
 bookwrite = copy(book2)
 write_sheet = bookwrite.get_sheet(0)
-write_sheet.write(3, 0, 123)
-# bookwrite.save("./456.xls")
+# 5.进行比较和逻辑运算
+# write_sheet.write(3, 0, 123)
+
+#最总把内存中复制的表格保存到新的表格中
+bookwrite.save("./456.xls")
 # mySheet.write(0,0,2) #成功在0，0这个位置写入1
 # row = 0
 # lie = 0
